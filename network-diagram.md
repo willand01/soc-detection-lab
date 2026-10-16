@@ -1,4 +1,5 @@
 
+```mermaid
 flowchart TB
     HOST["Windows 11 Host"]
 
@@ -22,3 +23,4 @@ flowchart TB
     classDef endpoint fill:#dcfce7,stroke:#16a34a,color:#14532d
     class SIEM siem
     class KALI,WIN endpoint
+```
