@@ -1,0 +1,55 @@
+# SOC Homelab Architecture
+
+## Overview
+
+This project is a virtualized Security Operations Center (SOC) homelab built using Oracle VirtualBox and Wazuh. It provides an isolated environment for endpoint monitoring, security-event collection, detection validation, and investigation practice.
+
+## Infrastructure
+
+| Component | Role | Status |
+|---|---|---|
+| Windows 11 host | Runs and manages the virtual machines | Operational |
+| SOC-SIEM | Wazuh SIEM, event analysis, and dashboard | Operational |
+| SOC-KALI | Kali Purple endpoint and authentication-event testing | Operational |
+| SOC-WIN11 | Windows 11 endpoint for future monitoring exercises | Configured; verify status at runtime |
+
+## Network Design
+
+- Virtualization platform: Oracle VirtualBox 7.2.0
+- Virtual network: `SOC Lab` NAT Network
+- SIEM guest IP: `10.0.2.4`
+- Wazuh dashboard: `https://127.0.0.1:8443` from the Windows host
+- Dashboard forwarding: host TCP port `8443` to SIEM TCP port `443`
+
+The dashboard connection has been verified from the Windows host. Endpoint-to-SIEM connectivity has also been verified for Kali.
+
+## Security Telemetry Flow
+
+1. An endpoint generates a system or authentication event.
+2. The Wazuh agent collects supported event data.
+3. The event is sent to the Wazuh manager.
+4. Wazuh evaluates the event against its configured rules.
+5. Events and any generated alerts are investigated in the dashboard.
+
+## Validation
+
+A controlled failed `sudo` authentication attempt on `SOC-KALI` produced a Wazuh event with the following details:
+
+- Description: `PAM: User login failed`
+- Rule ID: `5503`
+- Rule level: `5`
+- Agent: `SOC-KALI`
+
+Evidence is documented in `Lab-Journal.md` and `Screenshots/kali-auth-failure-wazuh.png`.
+
+## Planned Work
+
+- Test repeated authentication failures.
+- Investigate detection behavior and severity.
+- Configure and validate Windows endpoint telemetry.
+- Add incident reports and supporting screenshots.
+- Document network topology and event flow.
+
+## Scope and Safety
+
+Testing is performed on systems controlled by the project owner within the lab environment. Credentials, private keys, access tokens, and VM disk images are excluded from the public repository.
