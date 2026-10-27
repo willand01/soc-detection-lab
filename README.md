@@ -12,7 +12,9 @@ Hands-on cybersecurity portfolio project demonstrating endpoint log collection, 
 
 ## Documentation
 
-- [Lab Journal](Lab-Journal.md) — objectives, environment, procedures, observed results, interpretation, and follow-up tasks.
+- [Lab Journal](Lab-Journal.md) — chronological objectives, procedures, observations, interpretation, and follow-up tasks.
+- [Windows Filtering Platform Investigation](reports/windows-filtering-platform-investigation.md) — event collection, blocked-traffic analysis, and custom-rule validation status.
+- [Active Directory Foundation Lab](reports/active-directory-foundation.md) — domain setup, user/group administration, and sign-in validation.
 
 ## Lab Environment
 
