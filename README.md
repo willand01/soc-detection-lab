@@ -1,6 +1,6 @@
 # SOC Detection Lab
 
-Hands-on cybersecurity portfolio project demonstrating endpoint log collection, security event investigation, detection engineering, and Windows identity administration in an isolated VirtualBox lab.
+Hands-on cybersecurity portfolio project demonstrating endpoint log collection, security event investigation, detection engineering in an isolated VirtualBox lab.
 
 ## Lab Highlights
 
@@ -8,13 +8,11 @@ Hands-on cybersecurity portfolio project demonstrating endpoint log collection, 
 - **Linux authentication monitoring:** generated a controlled failed sudo authentication on Kali Purple and identified the Wazuh alert (`PAM: User login failed`, rule `5503`, level 5).
 - **Windows Filtering Platform investigation:** enabled/collected Windows Security events `5152` and `5157`, generated a controlled TCP probe from Kali to Windows port `4444`, and investigated the event in Wazuh.
 - **Detection engineering:** drafted custom Wazuh rule `100510` for a Windows filtering packet-block event. End-to-end firing of the custom rule remains a validation task and is not claimed as complete.
-- **Active Directory administration:** built a Windows Server domain controller and Windows client for `adlab.local`, practiced domain join, user creation, security-group membership, and sign-in troubleshooting.
 
 ## Documentation
 
 - [Lab Journal](Lab-Journal.md) — chronological objectives, procedures, observations, interpretation, and follow-up tasks.
 - [Windows Filtering Platform Investigation](reports/windows-filtering-platform-investigation.md) — event collection, blocked-traffic analysis, and custom-rule validation status.
-- [Active Directory Foundation Lab](reports/active-directory-foundation.md) — domain setup, user/group administration, and sign-in validation.
 
 ## Lab Environment
 
@@ -25,8 +23,6 @@ The environment uses VirtualBox virtual machines connected to an isolated NAT Ne
 | SOC-SIEM | Wazuh SIEM | `10.0.2.4` |
 | SOC-WIN11 | Windows monitored endpoint | `10.0.2.3` |
 | SOC-KALI | Kali Purple test endpoint | `10.0.2.15` |
-| AD-DC01 | Active Directory domain controller | `10.0.2.5` |
-| AD-CLIENT01 | Windows domain client | `10.0.2.6` observed during setup |
 
 Addresses are lab observations and may change if network settings or DHCP leases change.
 
@@ -38,5 +34,4 @@ Each exercise is performed in a controlled lab. Documentation separates observed
 
 - Validate the custom Wazuh rule `100510` with a fresh event and confirm whether the alert fires.
 - Add a network/VM architecture diagram and supporting screenshots.
-- Complete helpdesk-style Active Directory exercises and document troubleshooting steps.
 - Expand detection and investigation scenarios as the lab develops.
